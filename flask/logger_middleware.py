@@ -18,5 +18,5 @@ class LoggerMiddleware:
             "X-Forwarded-For",
             request.remote_addr,
         )
-        print(f"🌐 from: {ip_address}, duration: {duration} seconds, status: {response.status_code}")
+        print(f"🌐 {request.path} from: {ip_address} took {duration} seconds and returned status {response.status_code}")
         return response
