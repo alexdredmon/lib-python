@@ -1,10 +1,13 @@
 from flask import g, request
+import logging
 import time
 
 
 class LoggerMiddleware:
     def __init__(self, app):
         self.app = app
+        log = logging.getLogger('werkzeug')
+        log.disabled = True
 
         app.before_request(self.before_request)
         app.after_request(self.after_request)
